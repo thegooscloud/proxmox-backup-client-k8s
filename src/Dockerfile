@@ -4,11 +4,12 @@ USER root
 
 RUN set -exu \
   && apt-get -yq update \
-  && apt-get -yq dist-upgrade \
   && apt-get -yq install \
-    wget
+    curl
 
-ADD --chown=root:root https://enterprise.proxmox.com/debian/proxmox-archive-keyring-trixie.gpg /usr/share/keyrings/proxmox-archive-keyring.gpg
+RUN set -exu \
+  && curl -s -o /usr/share/keyrings/proxmox-archive-keyring.gpg https://enterprise.proxmox.com/debian/proxmox-archive-keyring-trixie.gpg
+
 COPY ./proxmox.sources /etc/apt/sources.list.d/
 
 RUN set -exu \
