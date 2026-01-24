@@ -14,6 +14,7 @@ RUN set -exu \
   && apt-get -yq update \
   && apt-get -yq install \
     proxmox-backup-client \
+    ca-certificates \
   && apt-get -yq clean
 
 ENTRYPOINT ["proxmox-backup-client"]
