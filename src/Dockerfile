@@ -1,8 +1,11 @@
 FROM docker.io/debian:trixie-slim
 
 USER root
-  
-ADD https://enterprise.proxmox.com/debian/proxmox-archive-keyring-trixie.gpg /usr/share/keyrings/proxmox-archive-keyring.gpg 
+
+RUN set -exu \
+  && mkdir -pv /usr/share/keyrings/
+
+ADD --chmod=644 --chown=root:root https://enterprise.proxmox.com/debian/proxmox-archive-keyring-trixie.gpg /usr/share/keyrings/proxmox-archive-keyring.gpg 
 
 COPY ./proxmox.sources /etc/apt/sources.list.d/
 
