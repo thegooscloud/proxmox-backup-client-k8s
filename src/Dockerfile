@@ -13,8 +13,9 @@ RUN set -exu \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get -yq update \
   && apt-get -yq install \
-    proxmox-backup-client \
     ca-certificates \
+    cron \
+    proxmox-backup-client \
   && apt-get -yq clean
 
 ENTRYPOINT ["proxmox-backup-client"]
