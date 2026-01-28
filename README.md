@@ -56,7 +56,7 @@ spec:
               subPath: files.key
           restartPolicy: OnFailure
           volumes:
-          - name: photos
+          - name: files
             persistentVolumeClaim:
               claimName: files
           - name: files-key
