@@ -18,4 +18,6 @@ RUN set -exu \
     proxmox-backup-client \
   && apt-get -yq clean
 
+COPY backup.sh /backup.sh
+
 ENTRYPOINT ["proxmox-backup-client"]
