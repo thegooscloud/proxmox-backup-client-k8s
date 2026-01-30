@@ -17,7 +17,7 @@ exec 5>&1
 # The variable catches output while tee sends it to fd 5 (terminal)
 PBS_OUTPUT=$(proxmox-backup-client \
     backup \
-    "${PBS_PXAR_NAME}.pxar:/${PBS_BACKUP_SRC_DIR}" \
+    "${PBS_PXAR_NAME}.pxar:${PBS_BACKUP_SRC_DIR}" \
     --backup-id "${PBS_BACKUP_ID}" \
     --backup-type host \
     --all-file-systems \
